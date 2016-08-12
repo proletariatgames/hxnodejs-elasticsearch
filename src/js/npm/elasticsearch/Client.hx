@@ -1,5 +1,6 @@
 package js.npm.elasticsearch;
 import haxe.extern.EitherType as Either;
+import haxe.DynamicAccess;
 
 @:jsRequire('elasticsearch', 'Client')
 extern class Client {
@@ -226,7 +227,7 @@ extern class Client {
     Elasticsearch Query DSL in the body parameter.
    **/
   @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function search(params:SearchParams, callback:js.Error->Dynamic->Void):Void;
+  public function search<T>(params:SearchParams, callback:js.Error->SearchResult<T>->Void):Void;
 
   @:overload(function(callback:js.Error->Dynamic->Void):Void {})
   public function searchExists(params:SearchParams, callback:js.Error->Dynamic->Void):Void;
@@ -898,7 +899,7 @@ typedef IndexParams = { > BaseParamsBody<Dynamic>,
   var Scan = "scan";
 }
 
-typedef SearchParams = {
+typedef SearchParams = { >BaseParamsBody<Dynamic>,
   /**
     The analyzer to use for the query string
    **/
@@ -991,14 +992,14 @@ typedef SearchParams = {
   @:optional var searchType(default, null):SearchType;
 
   /**
-    Float of hits to return (default: 10)
+    Number of hits to return (default: 10)
    **/
-  @:optional var size(default, null):Float;
+  @:optional var size(default, null):Int;
 
   /**
     A comma-separated list of <field>:<direction> pairs
    **/
-  @:optional var sort(default, null):Either<ArrayOrValue<String>, Bool>;
+  @:optional var sort(default, null):Array<Either<DynamicAccess<SortDirection>, String>>;
 
   /**
     True or false to return the _source field or not, or a list of fields to return
@@ -1216,5 +1217,32 @@ abstract Duration(String) from String {
 
   @:extern inline public static function fromSeconds(min:Float):Duration {
     return '${min}s';
+  }
+}
+
+@:enum abstract SortDirection(String) to String {
+  var Asc = "asc";
+  var Desc = "desc";
+}
+
+typedef SearchResult<T> = {
+  took: Int,
+  timed_out:Bool,
+  _shards: {
+    total:Int,
+    successful:Int,
+    failed:Int
+  },
+  hits: {
+    total:Int,
+    max_score: Int,
+    hits:Array<{
+      _index:String,
+      _type:String,
+      _id:String,
+      _score:Int,
+      _ttl:Int,
+      _source:T
+    }>
   }
 }
