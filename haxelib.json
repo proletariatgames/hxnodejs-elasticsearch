@@ -1,0 +1,14 @@
+{
+  "name": "hxnodejs-elasticsearch",
+  "url": "https://github.com/proletariatgames/hxnodejs-elasticsearch",
+  "license": "MIT",
+  "classPath": "src",
+  "tags": ["nodejs", "elasticsearch"],
+  "description": "Externs for the elasticsearch NPM module",
+  "releasenote": "Initial release",
+  "version": "11.0.0-alpha",
+  "contributors": ["Proletariat", "lpetre", "danogles", "waneck"],
+  "dependencies": {
+    "hxnodejs": ""
+  }
+}
