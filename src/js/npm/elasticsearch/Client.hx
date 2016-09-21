@@ -268,8 +268,7 @@ extern class Client {
   //TODO: add definition
   var cluster(default, null):Dynamic;
 
-  //TODO: add definition
-  var indices(default, null):Dynamic;
+  var indices(default, null):Indices;
 
   //TODO: add definition
   var nodes(default, null):Dynamic;
@@ -877,12 +876,12 @@ typedef IndexParams = { > BaseParamsBody<Dynamic>,
   /**
     Document ID
    **/
-  @:optional var id(default, null):String;
+  var id(default, null):String;
 
   /**
     The name of the index
    **/
-  @:optional var index(default, null):String;
+  var index(default, null):String;
 
   /**
     The type of the document
@@ -1076,6 +1075,8 @@ typedef SearchParams = { >BaseParamsBody<Dynamic>,
     A comma-separated list of document types to search; leave empty to perform the operation on all types
    **/
   @:optional var type(default, null):Either<ArrayOrValue<String>, Bool>;
+
+  @:optional var query(default, null):Dynamic;
 };
 
 @:enum abstract SuggestMode(String) from String {
@@ -1245,4 +1246,26 @@ typedef SearchResult<T> = {
       _source:T
     }>
   }
+}
+
+// TODO: incomplete
+extern class Indices implements Dynamic {
+  /**
+    Create an index template that will automatically be applied to new indices created.
+
+    The default method is PUT and the usual params and return values apply. See the elasticsearch docs for more about
+    this method.
+   **/
+  public function putTemplate(params:{ >BaseParamsBody<Dynamic>, ?order:Float, ?create:Bool, ?timeout:Either<Float,
+    Date>, ?masterTimeout:Either<Float, Date>, ?flatSettings:Bool, name:String }, callback:js.Error->Dynamic->Void):Void;
+
+  /**
+    The default method is HEAD and the usual params and return values apply. See the elasticsearch docs for more about
+    this method.
+   **/
+  public function existsTemplate(params:{ >BaseParamsBody<Dynamic>, ?masterTimeout:Either<Date, Float>, ?local:Bool,
+    name:String }, callback:js.Error->Dynamic->Void):Void;
+
+  public function delete(params:{ >BaseParams, ?timeout:Either<Date, Float>, ?masterTimeout:Either<Date, Float>,
+    index:ArrayOrValue<String> }, callback:js.Error->Dynamic->Void):Void;
 }
