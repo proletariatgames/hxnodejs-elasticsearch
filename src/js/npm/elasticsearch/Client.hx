@@ -4,7 +4,7 @@ import haxe.DynamicAccess;
 
 @:jsRequire('elasticsearch', 'Client')
 extern class Client {
-  public function new(opt:{ host:String, ?log:String });
+  public function new(opt:Dynamic);
   /**
     Perform many index/delete operations in a single API call.
 
