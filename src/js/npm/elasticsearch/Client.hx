@@ -1268,4 +1268,21 @@ extern class Indices implements Dynamic {
 
   public function delete(params:{ >BaseParams, ?timeout:Either<Date, Float>, ?masterTimeout:Either<Date, Float>,
     index:ArrayOrValue<String> }, callback:js.Error->Dynamic->Void):Void;
+
+  /**
+    Retrieve statistics on different operations happening on an index.
+
+    The default method is GET and the usual params and return values apply. See the elasticsearch docs for more about
+    this method.
+   **/
+  public function stats(params:{ >BaseParams, ?completionFields:ArrayOrValue<String>, ?fielddataFields:ArrayOrValue<String>,
+    ?fields:ArrayOrValue<String>, ?groups:ArrayOrValue<String>, ?human:Bool, ?leve:StatsLevel,
+    ?types:ArrayOrValue<String>, index:ArrayOrValue<String>, ?metric:ArrayOrValue<String> },
+    callback:js.Error->Dynamic->Void):Void;
+}
+
+@:enum abstract StatsLevel(String) from String {
+  var Cluster = 'cluster';
+  var Indices = 'indices';
+  var Shareds = 'shards';
 }
