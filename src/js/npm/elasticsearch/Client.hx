@@ -164,7 +164,9 @@ extern class Client {
     this method.
    **/
   @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function mget(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
+  public function mget<T>(params:Either<BaseParamsBody<{ docs: Array<{ _index:String, _type:String, _id:String,
+    ?_source:Either<Array<String>, { include:Array<String>, exclude:Array<String> }> }> }>, { >BaseParamsBody<{
+    ids:Array<String> }>, index:String, type:String }>, callback:js.Error->MGetResult<T>->Void):Void;
 
   @:overload(function(callback:js.Error->Dynamic->Void):Void {})
   public function mpercolate(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
@@ -1246,6 +1248,17 @@ typedef SearchResult<T> = {
       _source:T
     }>
   }
+}
+
+typedef MGetResult<T> = {
+  docs: Array<{
+    _index:String,
+    _type:String,
+    _id:String,
+    _version:Int,
+    found:Bool,
+    _source:T
+  }>
 }
 
 // TODO: incomplete
