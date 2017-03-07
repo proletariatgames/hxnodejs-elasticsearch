@@ -11,7 +11,7 @@ extern class Client {
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  public function bulk(params:BulkParams, callback:js.Error->Dynamic->Void):Void;
+  public function bulk(params:BulkParams, callback:Error->Dynamic->Void):Void;
 
   /**
     Clear the scroll request created by specifying the scroll parameter to search.
@@ -20,7 +20,7 @@ extern class Client {
     this method.
    **/
   public function clearScroll(params:{ > BaseParams, ?scrollId:Either<ArrayOrValue<String>,Bool> },
-      callback:js.Error->Dynamic->Void):Void;
+      callback:Error->Dynamic->Void):Void;
 
   /**
     Get the number of documents for the cluster, index, type, or a query.
@@ -28,15 +28,15 @@ extern class Client {
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function count(params:CountParams, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function count(params:CountParams, callback:Error->Dynamic->Void):Void;
 
   /**
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function countPercolate(params:CountPercolateParams, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function countPercolate(params:CountPercolateParams, callback:Error->Dynamic->Void):Void;
 
   /**
     Adds a typed JSON document in a specific index, making it searchable. If a document with the same index, type, and
@@ -45,8 +45,8 @@ extern class Client {
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function create(params:CreateParams, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function create(params:CreateParams, callback:Error->Dynamic->Void):Void;
 
   /**
     Delete a typed JSON document from a specific index based on its id.
@@ -54,24 +54,24 @@ extern class Client {
     The default method is DELETE and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function delete(params:DeleteParams, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function delete(params:DeleteParams, callback:Error->Dynamic->Void):Void;
 
   /**
     The default method is DELETE and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
   public function deleteScript(params:{ > BaseParamsBody<Dynamic>, ?version:Float, ?versionType:String, ?id:String,
-    ?lang:String } , callback:js.Error->Dynamic->Void):Void;
+    ?lang:String } , callback:Error->Dynamic->Void):Void;
 
   /**
     The default method is DELETE and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
   public function deleteTemplate(params:{ > BaseParamsBody<Dynamic>, ?version:Float, ?versionType:String, ?id:String },
-    callback:js.Error->Dynamic->Void):Void;
+    callback:Error->Dynamic->Void):Void;
 
   /**
     Returns a Bool indicating whether or not a given document exists.
@@ -79,8 +79,8 @@ extern class Client {
     The default method is HEAD and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Bool->Void):Void {})
-  public function exists(params:ExistsParams, callback:js.Error->Bool->Void):Void;
+  @:overload(function(callback:Error->Bool->Void):Void {})
+  public function exists(params:ExistsParams, callback:Error->Bool->Void):Void;
 
   /**
     Provides details about a specific document’s score in relation to a specific query. It will also tell you if the
@@ -89,15 +89,15 @@ extern class Client {
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function explain(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function explain(params:Dynamic, callback:Error->Dynamic->Void):Void;
 
   /**
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function fieldStats(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function fieldStats(params:Dynamic, callback:Error->Dynamic->Void):Void;
 
   /**
     Get a typed JSON document from the index based on its id.
@@ -105,12 +105,12 @@ extern class Client {
     The default method is GET and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function get(params:GetParams, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function get(params:GetParams, callback:Error->Dynamic->Void):Void;
 
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
   public function getScript(params:{ > BaseParamsBody<Dynamic>, ?version:Float, ?versionType:String, ?id:String,
-    ?lang:String }, callback:js.Error->Dynamic->Void):Void;
+    ?lang:String }, callback:Error->Dynamic->Void):Void;
 
   /**
     Get the source of a document by its index, type and id.
@@ -118,16 +118,16 @@ extern class Client {
     The default method is GET and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function getSource(params:GetSourceParams, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function getSource(params:GetSourceParams, callback:Error->Dynamic->Void):Void;
 
   /**
     The default method is GET and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
   public function getTemplate(params:{ > BaseParamsBody<Dynamic>, ?version:Float, ?versionType:String, ?id:String },
-      callback:js.Error->Dynamic->Void):Void;
+      callback:Error->Dynamic->Void):Void;
 
   /**
     Stores a typed JSON document in an index, making it searchable. When the id param is not set, a unique id will be
@@ -143,8 +143,8 @@ extern class Client {
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function index(params:IndexParams, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function index(params:IndexParams, callback:Error->Dynamic->Void):Void;
 
   /**
     Get basic info from the current cluster.
@@ -152,8 +152,8 @@ extern class Client {
     The default method is GET and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function info(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function info(params:Dynamic, callback:Error->Dynamic->Void):Void;
 
 
   /**
@@ -163,13 +163,13 @@ extern class Client {
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
   public function mget<T>(params:Either<BaseParamsBody<{ docs: Array<{ _index:String, _type:String, _id:String,
     ?_source:Either<Array<String>, { include:Array<String>, exclude:Array<String> }> }> }>, { >BaseParamsBody<{
-    ids:Array<String> }>, index:String, type:String }>, callback:js.Error->MGetResult<T>->Void):Void;
+    ids:Array<String> }>, index:String, type:String }>, callback:Error->MGetResult<T>->Void):Void;
 
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function mpercolate(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function mpercolate(params:Dynamic, callback:Error->Dynamic->Void):Void;
 
   /**
     Execute several search requests within the same request.
@@ -179,13 +179,13 @@ extern class Client {
 
     Perform multiple different searches, the body is made up of meta/data pairs.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
   public function msearch(params:{ >BaseParamsBody<Array<Dynamic>>, ?searchType:SearchType,
     ?index:Either<ArrayOrValue<String>, Bool>, type:Either<ArrayOrValue<String>, Bool> },
-    callback:js.Error->Dynamic->Void):Void;
+    callback:Error->Dynamic->Void):Void;
 
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function mtermvectors(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function mtermvectors(params:Dynamic, callback:Error->Dynamic->Void):Void;
 
   /**
     Match a document against registered percolator queries.
@@ -193,25 +193,25 @@ extern class Client {
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function percolate(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function percolate(params:Dynamic, callback:Error->Dynamic->Void):Void;
 
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function ping(params:BaseParams, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function ping(params:BaseParams, callback:Error->Dynamic->Void):Void;
 
   public function putScript(params:{ >BaseParamsBody<Dynamic>, ?opType:String, ?version:Float, ?versionType:String,
-    ?id:String, ?lang:String }, callback:js.Error->Dynamic->Void):Void;
+    ?id:String, ?lang:String }, callback:Error->Dynamic->Void):Void;
 
   public function putTemplate(params:{ >BaseParamsBody<Dynamic>, ?opType:String, ?version:Float, ?versionType:String,
-    ?id:String }, callback:js.Error->Dynamic->Void):Void;
+    ?id:String }, callback:Error->Dynamic->Void):Void;
 
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
   public function reindex(params:{ >BaseParamsBody<Dynamic>, ?refresh:Bool, ?timeout:Either<Date,Float>,
-    ?consistency:Consistency, ?waitForCompletion:Bool }, callback:js.Error->Dynamic->Void):Void;
+    ?consistency:Consistency, ?waitForCompletion:Bool }, callback:Error->Dynamic->Void):Void;
 
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
   public function renderSearchTemplate(params:{ >BaseParamsBody<Dynamic>, ?id:String },
-      callback:js.Error->Dynamic->Void):Void;
+      callback:Error->Dynamic->Void):Void;
 
   /**
     Scroll a search request (retrieve the next set of results) after specifying the scroll parameter in a search() call.
@@ -219,26 +219,26 @@ extern class Client {
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
   public function scroll(params:{>BaseParamsBody<Dynamic>, ?scroll:Duration, ?scrollId:String },
-      callback:js.Error->Dynamic->Void):Void;
+      callback:Error->Dynamic->Void):Void;
 
   /**
     Return documents matching a query, aggregations/facets, highlighted snippets, suggestions, and more. Write your
     queries as either simple query strings in the q parameter, or by specifying a full request definition using the
     Elasticsearch Query DSL in the body parameter.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function search<T>(params:SearchParams, callback:js.Error->SearchResult<T>->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function search<T>(params:SearchParams, callback:Error->SearchResult<T>->Void):Void;
 
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function searchExists(params:SearchParams, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function searchExists(params:SearchParams, callback:Error->Dynamic->Void):Void;
 
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function searchShards(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function searchShards(params:Dynamic, callback:Error->Dynamic->Void):Void;
 
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function searchTemplate(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function searchTemplate(params:Dynamic, callback:Error->Dynamic->Void):Void;
 
   /**
     The suggest feature suggests similar looking terms based on a provided text by using a specific suggester.
@@ -246,11 +246,11 @@ extern class Client {
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function suggest(params:SuggestParams, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function suggest(params:SuggestParams, callback:Error->Dynamic->Void):Void;
 
-  @:overload(function(callback:js.Error->Dynamic->Void):Void {})
-  public function termvectors(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
+  @:overload(function(callback:Error->Dynamic->Void):Void {})
+  public function termvectors(params:Dynamic, callback:Error->Dynamic->Void):Void;
 
   /**
     Update parts of a document. The required body parameter can contain one of two things:
@@ -260,9 +260,9 @@ extern class Client {
     The default method is POST and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
-  public function update(params:UpdateParams, callback:js.Error->Dynamic->Void):Void;
+  public function update(params:UpdateParams, callback:Error->Dynamic->Void):Void;
 
-  public function updateByQuery(params:Dynamic, callback:js.Error->Dynamic->Void):Void;
+  public function updateByQuery(params:Dynamic, callback:Error->Dynamic->Void):Void;
 
   //TODO: add definition
   var cat(default, null):Dynamic;
@@ -1264,23 +1264,35 @@ typedef MGetResult<T> = {
 // TODO: incomplete
 extern class Indices implements Dynamic {
   /**
+    Create an index in Elasticsearch.
+   **/
+  public function create(params:{ >BaseParamsBody<Dynamic>, ?timeout:Either<Float, Date>, ?masterTimeout:Either<Float,
+    Date>, ?updateAllTypes:Bool, index:String }, callback:Error->Dynamic->Void):Void;
+
+  /**
+    Return a boolean indicating whether given index exists.
+   **/
+  public function exists(params:{ >BaseParams, ?ignoreUnavailable:Bool, ?allowNoIndices:Bool, ?expandWildcards:ExpandWildcards,
+    ?local:Bool, index:ArrayOrValue<String>, }, callback:Error->Dynamic->Void):Void;
+
+  /**
     Create an index template that will automatically be applied to new indices created.
 
     The default method is PUT and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
   public function putTemplate(params:{ >BaseParamsBody<Dynamic>, ?order:Float, ?create:Bool, ?timeout:Either<Float,
-    Date>, ?masterTimeout:Either<Float, Date>, ?flatSettings:Bool, name:String }, callback:js.Error->Dynamic->Void):Void;
+    Date>, ?masterTimeout:Either<Float, Date>, ?flatSettings:Bool, name:String }, callback:Error->Dynamic->Void):Void;
 
   /**
     The default method is HEAD and the usual params and return values apply. See the elasticsearch docs for more about
     this method.
    **/
   public function existsTemplate(params:{ >BaseParamsBody<Dynamic>, ?masterTimeout:Either<Date, Float>, ?local:Bool,
-    name:String }, callback:js.Error->Dynamic->Void):Void;
+    name:String }, callback:Error->Dynamic->Void):Void;
 
   public function delete(params:{ >BaseParams, ?timeout:Either<Date, Float>, ?masterTimeout:Either<Date, Float>,
-    index:ArrayOrValue<String> }, callback:js.Error->Dynamic->Void):Void;
+    index:ArrayOrValue<String> }, callback:Error->Dynamic->Void):Void;
 
   /**
     Retrieve statistics on different operations happening on an index.
@@ -1291,11 +1303,88 @@ extern class Indices implements Dynamic {
   public function stats(params:{ >BaseParams, ?completionFields:ArrayOrValue<String>, ?fielddataFields:ArrayOrValue<String>,
     ?fields:ArrayOrValue<String>, ?groups:ArrayOrValue<String>, ?human:Bool, ?leve:StatsLevel,
     ?types:ArrayOrValue<String>, index:ArrayOrValue<String>, ?metric:ArrayOrValue<String> },
-    callback:js.Error->Dynamic->Void):Void;
+    callback:Error->Dynamic->Void):Void;
+
+  /**
+    Delete a specific alias.
+   **/
+  public function deleteAlias(params:{ >BaseParams, ?timeout:Either<Date, Float>, ?masterTimeout:Either<Date, Float>,
+    ?index:ArrayOrValue<String>, name:ArrayOrValue<String> }, callback:Error->Dynamic->Void):Void;
+
+  /**
+    Return a boolean indicating whether given alias exists.
+   **/
+  public function existsAlias(params:{ >BaseParams, ?ignoreUnavailable:Bool, ?allowNoIndices:Bool,
+    ?expandWildcards:ExpandWildcards, ?local:Bool, ?index:ArrayOrValue<String>, name:ArrayOrValue<String> },
+    callback:Error->Bool->Void):Void;
+
+  /**
+    Retrieve a specified alias.
+   **/
+  public function getAlias(params:{ >BaseParams, ?ignoreUnavailable:Bool, ?allowNoIndices:Bool,
+    ?expandWildcards:ExpandWildcards, ?local:Bool, ?index:ArrayOrValue<String>, name:ArrayOrValue<String> },
+    callback:Error->Dynamic->Void):Void;
+
+  /**
+    Retrieve specified aliases
+   **/
+  public function getAliases(params:{ >BaseParams, ?timeout:Either<Date, Float>, ?local:Bool,
+    ?index:ArrayOrValue<String>, name:ArrayOrValue<String> }, callback:Error->Dynamic->Void):Void;
+
+  /**
+    Create an alias for a specific index/indices.
+   **/
+  public function putAlias(params:{ >BaseParamsBody<Dynamic>, ?timeout:Either<Date, Float>,
+    ?masterTimeout:Either<Date, Float>, ?index:ArrayOrValue<String>, name:String },
+    callback:Error->Dynamic->Void):Void;
+
+  /**
+    Update specified aliases.
+    Perform an atomic alias swap, for a rotating index
+
+    ```
+    client.indices.updateAliases({
+      body: {
+        actions: [
+          { remove: { index: 'logstash-2014.04', alias: 'logstash-current' } },
+          { add:    { index: 'logstash-2014.05', alias: 'logstash-current' } }
+        ]
+      }
+    }).then(function (response) {
+      // ...
+    }, errorHandler);
+    ```
+   **/
+  public function updateAliases(params:{ >BaseParamsBody<AliasUpdateBody>, ?timeout:Either<Date, Float>,
+    ?masterTimeout:Either<Date, Float> }, callback:Error->Dynamic->Void):Void;
 }
 
 @:enum abstract StatsLevel(String) from String {
   var Cluster = 'cluster';
   var Indices = 'indices';
   var Shareds = 'shards';
+}
+
+typedef AliasUpdateActionBase = {
+  ?filter:Dynamic,
+  ?search_routing: String,
+  ?index_routing: String,
+  ?index:String,
+  ?indices:Array<String>,
+  ?alias:String,
+  ?aliases:Array<String>
+}
+abstract AliasUpdateAction(Dynamic)
+  from { remove: AliasUpdateActionBase }
+  from { add: AliasUpdateActionBase }
+  from { remove_index: { index:String } }
+{
+}
+
+typedef AliasUpdateBody = {
+  actions:Array<AliasUpdateAction>
+}
+
+extern class Error extends js.Error {
+  public var code(default, null):Null<Int>;
 }
